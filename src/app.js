@@ -25,13 +25,15 @@ console.log(__filename)
 const path = require('path')
 const cors = require('cors'); 
 
+const port = process.env.PORT || 5000
+
 //setup static directory to serve
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 app.use(express.static(publicDirectoryPath))
 // Allow requests from a specific origin
-app.use(cors({ origin: 'http://127.0.0.1:3000' }));
+app.use(cors({ origin: 'http://127.0.0.1:' + port }));
 
 //setup handlebars engine and views location
 app.set('view engine', 'hbs')
@@ -118,6 +120,6 @@ app.use((req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000')
+app.listen(port, () => {
+    console.log('Server is running on port ' + port)
 })
