@@ -7,6 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "install": "npm install",
     "start": "node src/app.js"
   },
   "dependencies": {
